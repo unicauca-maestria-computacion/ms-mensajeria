@@ -1,0 +1,19 @@
+server:
+  port: ${SPRING_SERVER_MAIL_PORT:8093}
+  servlet:
+    context-path: ${SPRING_SERVER_CONTEXT_PATH:/maestria-computacion}
+
+spring:
+  application:
+    name: mensajeria
+  mail:
+    host: ${SPRING_MAIL_HOST:smtp.gmail.com}
+    port: ${SPRING_MAIL_PORT:587}
+    username: ${SPRING_MAIL_USERNAME:}
+    password: ${SPRING_MAIL_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true

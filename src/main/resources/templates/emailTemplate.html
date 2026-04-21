@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Correo de Ejemplo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        .rojo-cursiva {
+            color: red;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <p th:text="${mensaje_saludo}">Buenos dias / Buenas tardes / Buenas noches</p>    
+    <p th:utext="${cuerpoCorreoFormateado}"></p>
+    <footer>
+        <p class="rojo-cursiva">
+            Este es un mensaje automático. Por favor, no responda a este correo. 
+        </p>
+    </footer>
+</body>
+</html>
