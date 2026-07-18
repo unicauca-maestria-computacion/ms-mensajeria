@@ -1,0 +1,21 @@
+name: CD Practica Profesional ms-mensajeria
+
+on:
+  workflow_run:
+    workflows: ['CI Practica Profesional ms-mensajeria']
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - name: Pull and Recreate Container
+        run: |
+          cd /home/daniel/practica-profesional
+          docker compose pull ms-mensajeria
+          docker compose up -d ms-mensajeria
+          docker image prune -f
+
