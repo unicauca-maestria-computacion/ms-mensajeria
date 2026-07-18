@@ -17,5 +17,5 @@ jobs:
           cd /home/daniel/practica-profesional
           docker compose pull ms-mensajeria
           docker compose up -d ms-mensajeria
-          docker image prune -f
+          docker images --filter "dangling=true" --filter "reference=*practica-profesional-mensajeria*" -q | xargs -r docker rmi -f 2>/dev/null || true
 
